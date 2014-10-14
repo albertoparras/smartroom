@@ -1,0 +1,162 @@
+<DOCTYPE! html>
+<html lang="es">
+<head>
+<title>Smart Room Proyect</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1"> <!-- Ajustar la pantalla en terminal móvil, se le dice que el proyecto se pensó para pantalla de 900px y reajusta -->
+<!-- Bootstrap core CSS -->
+<link href="bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="bootstrap-theme.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="theme.css" rel="stylesheet">
+<script src="nombre.js"></script>
+<script src="datos.js"></script>
+<style type="text/css">
+
+  .tempe:required:invalid, .tempe:focus:invalid {
+    background-image: url(http://www.the-art-of-web.com//images/invalid.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+  .tempe:required:valid {
+    background-image: url(http://www.the-art-of-web.com//images/valid.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+
+</style>
+</head>
+<body role="document">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		  <a class="navbar-brand" href="index.html">Smart Room Proyect</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Ajustes <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="config.html">Configuración</a></li>
+						<li class="divider"></li>
+						<li class="dropdown-header">Para iniciar sesion</li>
+						<li><a href="minombre.html">Nombre</a></li>
+					</ul>
+				</li>
+				<li><a id="info" href="#">Informacion:</a></li>
+			</ul>
+        </div><!--/.nav-collapse -->
+	</div>
+  </div>
+<div class="container theme-showcase" role="main">
+<div class="jumbotron">
+        <h1 style="text-align:center;">Smart Room Proyect</h1>
+</div>
+<form name="formulario" id="formulario" action="index.html" oninput="dif.value=max.valueAsNumber - min.valueAsNumber" method="post">
+<div class="row">
+<div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title" style="text-align:center;">Datos de la Habitación:</h3>
+            </div>
+            <div class="panel-body">
+					<div class="input-group">
+					<span class="input-group-addon">País:</span><input onkeyup="validar(2)" onchange="validar(2)" type="datalist" id="paiss" name="pais" list="pais" class="form-control" form="formulario" placeholder="España" required>
+					<datalist id="pais">
+					<option value="España" />
+					<option value="Francia" />
+					<option value="Alemania" />
+					<option value="Italia" />
+					<option value="Reino Unido" />
+					<option value="Portugal" /> 
+					</datalist>
+					</div>
+					<div class="input-group" id="cpais">
+						<span class="input-group-addon">Ciudad</span><input onkeyup="validar(6)" onchange="validar(6)" type="text" id="ciudad" name="ciudad" class="form-control" placeholder="Madrid" form="formulario" required></div>
+					<div class="input-group">
+						<span class="input-group-addon" id="cgps">Coordenadas GPS:</span><input onkeyup="validar(1)" onchange="validar(1)" type="text" id="coorde" name="coordenadas" class="form-control" placeholder="-34.56,3.17" form="formulario" required></div>
+					<div class="input-group">
+						<span class="input-group-addon">Foto:</span><input type="file" accept="image/gif" name="foto" class="form-control" placeholder="foto.gif" form="formulario" required></div>
+					<div class="input-group">
+						<span class="input-group-addon" id="mensajes" id="cpass">Password:</span><input onkeyup="validar(3)" onchange="validar(3)" type="password" id="pass" name="password" class="form-control" placeholder="contraseña" form="formulario" required></div>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title" style="text-align:center;">Datos de los sensores:</h3>
+            </div>
+            <div class="panel-body">
+				<h3><span class="label label-info" id="intereses00"><input onclick="color(0)" type="checkbox" id="intereses0" checked="checked" form="formulario" />Temperatura</span></h3>
+				<h3><span class="label label-info" id="intereses11"><input onclick="color(1)" type="checkbox" id="intereses1" checked="checked" form="formulario" />Humedad</span></h3>
+				<h3><span class="label label-info" id="intereses22"><input onclick="color(2)" type="checkbox" id="intereses2" checked="checked" form="formulario" />Nivel de sonido</span></h3>
+				<h3><span class="label label-info" id="intereses33"><input onclick="color(3)" type="checkbox" id="intereses3" checked="checked" form="formulario" />Nivel de luz</span></h3>
+				<h3><span class="label label-info" id="intereses44"><input onclick="color(4)" type="checkbox" id="intereses4" checked="checked" form="formulario" />Movimiento</span></h3>
+				<h3><span class="label label-info" id="intereses55"><input onclick="color(5)" type="checkbox" id="intereses5" checked="checked" form="formulario" />Iluminación</span></h3>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title" style="text-align:center;">Configura alertas:</h3>
+            </div>
+            <div class="panel-body">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						Temperatura máxima:
+					</div>
+					<div class="panel-footer">
+						<input class="tempe" id="max" name="max" min="0" max="45" type="number" placeholder="26" form="formulario" onchange="validar(4)" required><br>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						Temperatura mínima:
+					</div>
+					<div class="panel-footer">
+						<input class="tempe" id="min" name="min" min="-20" max="0" type="number" placeholder="0" form="formulario" onchange="validar(4)" required><br>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						Diferencia de temperaturas:
+					</div>
+					<div class="panel-footer">
+						<output id="dif" name="dif" for="min max" form="formulario"><br>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+</div>
+<div id="boton" style="text-align:center;">
+<button type="button" id="botton" class="btn btn-lg btn-default" onclick="validar(5)">Enviar Datos</button>
+<button type="button" id="botton2" class="btn btn-lg btn-danger" onclick="borrar()">Borrar Datos</button>
+</div>
+</form>
+</div>
+<br>
+<div class="panel panel-warning">
+    <div class="panel-heading" style="text-align:center;">
+              <a class="panel-title" href="index.html">Volver a página principal</h3>
+            </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+              <h3 style="text-align: center;" class="panel-title">Copyright &copy Universidad de Alcalá</h3>
+            </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+</body>
+</html>
